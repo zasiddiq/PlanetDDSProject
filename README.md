@@ -4,8 +4,12 @@ This website serves as a proof of concept for a patient management application f
 
 ### Tech Stack
 Backend: Java, Java Servlets, SQL (MySQL)
+
 Frontend: JavaScript, AJAX, HTML, Bootstrap, jQuery
+
 Hosting/Cloud: Amazon Web Services (EC2), Google ReCAPTCHA, Tomcat Web Server
+
+Version Control: Git, GitHub
 
 ### Login screen
 
@@ -29,4 +33,4 @@ The log out button ends the current user session and redirects the user to the l
 
 ![planet dds main page](main_page.png)
 
-Done By: Zain Siddiqui. September 6, 2030.
+Done By: Zain Siddiqui. September 6, 2020.
