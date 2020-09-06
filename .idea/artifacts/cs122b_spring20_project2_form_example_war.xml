@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="cs122b-spring20-project2-form-example:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>cs122b-spring20-project2-form-example</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="cs122b-spring20-project2-form-example.war">
+      <element id="artifact" artifact-name="cs122b-spring20-project2-form-example:war exploded" />
+    </root>
+  </artifact>
+</component>
