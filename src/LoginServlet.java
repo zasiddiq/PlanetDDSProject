@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
         String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
         System.out.println("gRecaptchaResponse=" + gRecaptchaResponse);
 
-        // Verify reCAPTCHA
+        // Verifies reCAPTCHA
         try {
             RecaptchaVerifyUtils.verify(gRecaptchaResponse);
         } catch (Exception e) {
