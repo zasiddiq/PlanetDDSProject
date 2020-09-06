@@ -3,7 +3,7 @@
 This website serves as a proof of concept for a patient management application for dentists.
 
 ### Tech Stack
-Backend: Java, Java Servlets, SQL (MySQL)
+Backend: Java, Java Servlets, SQL (MySQL), XML
 
 Frontend: JavaScript, AJAX, HTML, Bootstrap, jQuery
 
