@@ -15,9 +15,9 @@ The dentist is directed to the log in screen initially. Here, a valid dentist us
 
 This appliacation utilizes user sessions! If a user tries to access the "index.html" page or any other page wihtout logging in, the application takes the user back to the log in screen. This is for security reasons, as we do not want patient records to be exposed when someone is not logged in with something as easy as a URL bypass.
 
-![planet dds login screen](planet_dds_login.png=100x20)
+![planet dds login screen](planet_dds_login.png)
 
-![planet dds recaptcha](recaptcha.png=100x20)
+![planet dds recaptcha](recaptcha.png)
 
 Google ReCAPTCHA is also utiliazed on the log in screen! Google ReCAPTCHA is a service that prevents bots from attacking websites by verifying that the user "is not a robot." As such, users must fill out the ReCAPTCHA portion of the login screen to continue.
 
@@ -27,6 +27,6 @@ The main page of the application allows dentists to search for patients. The pat
 
 The log out button ends the current user session and redirects the user to the log in page. Since the application validates according to sessisons, trying to manually bypass the login by manually inputting a URL will NOT work.
 
-![planet dds main page](main_page.png=100x20)
+![planet dds main page](main_page.png)
 
 Done By: Zain Siddiqui. September 6, 2030.
