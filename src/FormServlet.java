@@ -23,7 +23,6 @@ public class FormServlet extends HttpServlet {
     @Resource(name = "jdbc/planetdds")
     private DataSource dataSource;
 
-
     // Use http GET
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
@@ -34,10 +33,10 @@ public class FormServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         // Building page head with title
-        out.println("<html><head><title>PlanetDDS: Found Records</title></head>");
+        out.println("<html><head><title>PlanetDDS: Found Patients</title></head>");
 
         // Building page body
-        out.println("<body><h1>PlanetDDS: Found Records</h1>");
+        out.println("<body><h1>PlanetDDS: Found Patients</h1>");
 
 
         try {
@@ -52,7 +51,6 @@ public class FormServlet extends HttpServlet {
             String name = request.getParameter("name");
 
             // Generate a SQL query
-            // String query = String.format("SELECT * from patient where firstName like '%s'", name);
             String query = String.format("SELECT * from patient where firstName like '%s'", name);
 
             // Perform the query
@@ -82,7 +80,7 @@ public class FormServlet extends HttpServlet {
         } catch (Exception ex) {
 
             // Output Error Massage to html
-            out.println(String.format("<html><head><title>MovieDBExample: Error</title></head>\n<body><p>SQL error in doGet: %s</p></body></html>", ex.getMessage()));
+            out.println(String.format("<html><head><title>PlanetDDS: Error</title></head>\n<body><p>SQL error in doGet: %s</p></body></html>", ex.getMessage()));
             return;
         }
         out.close();

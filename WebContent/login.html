@@ -3,25 +3,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login to Fablix</title>
+    <title>Login to PlanetDDS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
 </head>
 <body>
-<h2>Login to PlanetDDS</h2>
+<br> <br> <br>
+<br> <br> <br>
+<center> <h2>Login to PlanetDDS</h2> </center>
+<br> <br> <br>
 <!-- Set the method to POST to avoid showing the username/password in the URL
      The default action is disabled to allow your own implementation. -->
-<form id="login_form" method="post" action="#">
-    <label><b>Username</b></label>
-    <label>
-        <input name="username" placeholder="Enter Username" type="text">
-    </label>
-    <br>
-    <label><b>Password</b></label>
-    <label>
-        <input name="password" placeholder="Enter Password" type="password">
-    </label>
-    <br>
-    <input type="submit" value="Login">
-</form>
+<div style="text-align:center">
+    <form id="login_form" method="post" action="#">
+        <label><b>Username</b></label>
+        <label>
+            <input name="username" placeholder="Enter Username" type="text">
+        </label>
+        <br> <br> <br>
+        <label><b>Password</b></label>
+        <label>
+            <input name="password" placeholder="Enter Password" type="password">
+        </label>
+        <br> <br> <br>
+        <input type="submit" value="Login">
+    </form>
+</div>
 
 <div id="login_error_message"></div>
 

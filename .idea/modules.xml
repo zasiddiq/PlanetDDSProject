@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/cs122b-spring20-project2-form-example.iml" filepath="$PROJECT_DIR$/cs122b-spring20-project2-form-example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/planet-dds.iml" filepath="$PROJECT_DIR$/planet-dds.iml" />
     </modules>
   </component>
 </project>

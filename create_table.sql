@@ -14,7 +14,7 @@ CREATE TABLE patient (
 CREATE TABLE dentist (
 	firstName varchar( 50 ) NOT NULL DEFAULT '',
 	lastName varchar( 50 ) NOT NULL DEFAULT '',
-	address varchar( 200 ) NOT NULL DEFAULT '',
-	email varchar( 50 ) NOT NULL DEFAULT '',
-	PRIMARY KEY( email )
+	username varchar( 50 ) NOT NULL DEFAULT '',
+	password varchar( 100 ) NOT NULL DEFAULT '',
+	PRIMARY KEY( username )
 );

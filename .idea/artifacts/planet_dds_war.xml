@@ -1,14 +1,14 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="cs122b-spring20-project2-form-example:war">
+  <artifact type="war" name="planet-dds:war">
     <output-path>$PROJECT_DIR$/target</output-path>
     <properties id="maven-jee-properties">
       <options>
-        <module>cs122b-spring20-project2-form-example</module>
+        <module>planet-dds</module>
         <packaging>war</packaging>
       </options>
     </properties>
     <root id="archive" name="cs122b-spring20-project2-form-example.war">
-      <element id="artifact" artifact-name="cs122b-spring20-project2-form-example:war exploded" />
+      <element id="artifact" artifact-name="planet-dds:war exploded" />
     </root>
   </artifact>
 </component>
