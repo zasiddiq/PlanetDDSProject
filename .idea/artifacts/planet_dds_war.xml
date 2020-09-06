@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="cs122b-spring20-project2-form-example.war">
+    <root id="archive" name="planetdds.war">
       <element id="artifact" artifact-name="planet-dds:war exploded" />
     </root>
   </artifact>
