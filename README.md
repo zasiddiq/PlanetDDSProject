@@ -1,56 +1,32 @@
-## CS 122B Project 2 Form example
+## Zain Siddiqui: Planet DDS Take Home Project
 
-This example shows how HTML `<form>` works to send user input to backend.
+This website serves as a proof of concept for a patient management application for dentists.
 
-### Before running the example
-#### If you do not have USER `mytestuser` setup in MySQL, follow the below steps to create it:
+### Tech Stack
+Backend: Java, Java Servlets, SQL (MySQL)
+Frontend: JavaScript, AJAX, HTML, Bootstrap, jQuery
+Hosting/Cloud: Amazon Web Services (EC2), Google ReCAPTCHA, Tomcat Web Server
 
- - login to mysql as a root user 
-    ```
-    local> mysql -u root -p
-    ```
+### Login screen
 
- - create a test user and grant privileges:
-    ```
-    mysql> CREATE USER 'mytestuser'@'localhost' IDENTIFIED BY 'mypassword';
-    mysql> GRANT ALL PRIVILEGES ON * . * TO 'mytestuser'@'localhost';
-    mysql> quit;
-    ```
+Username/Password to login: AdminDentist, password: mypassword
 
-#### prepare the database `moviedbexample`
- 
-```    
-    local> mysql -u mytestuser -p
-    mysql> CREATE DATABASE IF NOT EXISTS moviedbexample;
-    mysql> USE moviedbexample;
-    mysql> CREATE TABLE IF NOT EXISTS stars(
-                   id varchar(10) primary key,
-                   name varchar(100) not null,
-                   birthYear integer
-               );
-    
-    mysql> INSERT IGNORE INTO stars VALUES('755011', 'Arnold Schwarzeneggar', 1947);
-    mysql> INSERT IGNORE INTO stars VALUES('755017', 'Eddie Murphy', 1961);
-```    
+The dentist is directed to the log in screen initially. Here, a valid dentist user name and valid dentist password must be provided. These are checked using the MySQL database that exists within the AWS EC2 instance in which this appplication runs on.
 
-### To run this example: 
-1. Clone this repository using `git clone https://github.com/UCI-Chenli-teaching/cs122b-spring20-project2-form-example.git`
-2. Open IntelliJ IDEA -> Open -> (Find the location of the repository) -> Choose "cs122b-spring20-project2-form-example" directory -> Click "OK" -> wait until Sync is complete.
-3. In `WebContent/META-INF/context.xml`, make sure the mysql username is `mytestuser` and password is `mypassword`.
-4. Also make sure you have the `moviedbexample` database.
-5. In Tomcat Deployment Configuration, make sure the application context is: /cs122b-spring20-project2-form-example
-6. To run the example, follow the instructions in [canvas](https://canvas.eee.uci.edu/courses/26486/pages/intellij-idea-tomcat-configuration)
+This appliacation utilizes user sessions! If a user tries to access the "index.html" page or any other page wihtout logging in, the application takes the user back to the log in screen. This is for security reasons, as we do not want patient records to be exposed when someone is not logged in with something as easy as a URL bypass.
 
+![planet dds login screen](planet_dds_login.png=100x20)
 
-### Brief Explanation
-`FormServlet.java` is a Java servlet that retrieves the data from HTML `<form>` and then talks to the database and generates the result HTML `<table>`
+![planet dds recaptcha](recaptcha.png=100x20)
 
-### DataSource
-For project 2, you are recommended to use tomcat to manage your DataSource instead of manually define MySQL connection in each of the servlet.
+Google ReCAPTCHA is also utiliazed on the log in screen! Google ReCAPTCHA is a service that prevents bots from attacking websites by verifying that the user "is not a robot." As such, users must fill out the ReCAPTCHA portion of the login screen to continue.
 
-`WebContent/META-INF/context.xml` contains a DataSource, with database information stored in it.
-`WEB-INF/web.xml` registers the DataSource to name jdbc/moviedbexample, which could be referred to anywhere in the project.
+### Main Page
 
-In both `FormServlet.java`, a private DataSource reference dataSource is created with `@Resource` annotation. It is a reference to the DataSource `jdbc/moviedbexample` we registered in `web.xml`
+The main page of the application allows dentists to search for patients. The patients live inside the patient table, which is also part of the MySQL database with the AWS EC2 instance in which this application runs on. There are 500+ sample patients in the database to search for. To see all of the patients, enter "%" (since % replaces any string). To search for a specific patient, try searching for "Zain".
 
-To use DataSource, you can create a new connection to it by `dataSource.getConnection()`, and you can use the connection as previous examples.
+The log out button ends the current user session and redirects the user to the log in page. Since the application validates according to sessisons, trying to manually bypass the login by manually inputting a URL will NOT work.
+
+![planet dds main page](main_page.png=100x20)
+
+Done By: Zain Siddiqui. September 6, 2030.
