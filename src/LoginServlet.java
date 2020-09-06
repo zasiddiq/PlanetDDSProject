@@ -1,5 +1,4 @@
 import com.google.gson.JsonObject;
-
 import javax.annotation.Resource;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,9 +26,6 @@ public class LoginServlet extends HttpServlet {
 
         boolean success = false;
 
-        /* This example only allows username/password to be test/test
-        /  in the real project, you should talk to the database to verify username/password
-        */
         JsonObject responseJsonObject = new JsonObject();
 
         PrintWriter out = response.getWriter();
@@ -75,7 +71,6 @@ public class LoginServlet extends HttpServlet {
         {
             e.printStackTrace();
         }
-
 
         if (!success) {
             // Login fail

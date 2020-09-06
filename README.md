@@ -11,6 +11,36 @@ Hosting/Cloud: Amazon Web Services (EC2), Google ReCAPTCHA, Tomcat Web Server
 
 Version Control: Git, GitHub
 
+Concepts Incorporated: REST APIs (proper use of GET and POST HTTP requests), JSON (for log in verification and database retrieval), strong authentication (user sessions, log in filter, Google ReCAPTCHA)
+
+Database Schema:
+
+Patient Table
+
+	id integer NOT NULL AUTO_INCREMENT,
+
+	firstName varchar( 50 ) NOT NULL DEFAULT '',
+
+	lastName varchar( 50 ) NOT NULL DEFAULT '',
+
+	address varchar( 200 ) NOT NULL DEFAULT '',
+
+	email varchar( 50 ) NOT NULL DEFAULT '',
+
+	PRIMARY KEY( id )
+
+Dentist Table
+
+	firstName varchar( 50 ) NOT NULL DEFAULT '',
+
+	lastName varchar( 50 ) NOT NULL DEFAULT '',
+
+	username varchar( 50 ) NOT NULL DEFAULT '',
+
+	password varchar( 100 ) NOT NULL DEFAULT '',
+
+	PRIMARY KEY( username )
+
 ### Login screen
 
 Username/Password to login: AdminDentist, password: mypassword
