@@ -8,5 +8,5 @@
               type="javax.sql.DataSource"
               username="mytestuser"
               password="mypassword"
-              url="jdbc:mysql://localhost:3306/planetdds" />
+              url="jdbc:mysql://localhost:3306/planetdds?useSSL=false" />
 </Context>

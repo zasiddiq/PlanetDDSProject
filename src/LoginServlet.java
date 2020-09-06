@@ -7,6 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 @WebServlet(name = "LoginServlet", urlPatterns = "/api/login")
 public class LoginServlet extends HttpServlet {
@@ -20,29 +24,41 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
+        boolean success = false;
+
         /* This example only allows username/password to be test/test
         /  in the real project, you should talk to the database to verify username/password
         */
         JsonObject responseJsonObject = new JsonObject();
-        if (username.equals("AdminDentist") && password.equals("mypassword")) {
-            // Login success:
 
-            // set this user into the session
-            request.getSession().setAttribute("user", new User(username));
+        try
+        {
+            Connection dbCon = dataSource.getConnection();
+            Statement statement = dbCon.createStatement();
+            String query = String.format("SELECT * from dentist where username like '%s'", username);
+            ResultSet rs = statement.executeQuery(query);
+            if ( rs.next() ) {
+                if (password.equals(rs.getString("password"))) {
+                    success = true;
+                    request.getSession().setAttribute("user", new User(username));
+                    responseJsonObject.addProperty("status", "success");
+                    responseJsonObject.addProperty("message", "success");
+                }
+            }
+            rs.close();
+            statement.close();
+            dbCon.close();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
 
-            responseJsonObject.addProperty("status", "success");
-            responseJsonObject.addProperty("message", "success");
 
-        } else {
+        if (!success) {
             // Login fail
             responseJsonObject.addProperty("status", "fail");
-
-            // sample error messages. in practice, it is not a good idea to tell user which one is incorrect/not exist.
-            if (!username.equals("anteater")) {
-                responseJsonObject.addProperty("message", "user " + username + " doesn't exist");
-            } else {
-                responseJsonObject.addProperty("message", "incorrect password");
-            }
+            responseJsonObject.addProperty("message", "Incorrect Login");
         }
         response.getWriter().write(responseJsonObject.toString());
     }
