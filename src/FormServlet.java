@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
- * A servlet that takes input from a html <form> and talks to MySQL moviedb,
+ * A servlet that takes input from a html <form> and talks to MySQL db
  * generates output as a html <table>
  */
 
